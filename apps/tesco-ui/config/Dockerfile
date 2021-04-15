@@ -11,6 +11,7 @@ COPY yarn.lock .
 COPY packages/tesco-base packages/tesco-base
 COPY packages/tesco-components packages/tesco-components
 COPY packages/tesco-core packages/tesco-core
+COPY packages/tesco-util packages/tesco-util
 
 # following is target ui project
 # DO NOT BUILD multiple ui projects here use from packages folder
@@ -26,6 +27,9 @@ WORKDIR /usr/src/app/packages/tesco-components
 RUN yarn build
 
 WORKDIR /usr/src/app/packages/tesco-core
+RUN yarn build
+
+WORKDIR /usr/src/app/packages/tesco-util
 RUN yarn build
 
 
@@ -50,6 +54,9 @@ COPY --from=build /usr/src/app/packages/tesco-components/build /usr/src/app/pack
 
 COPY --from=build /usr/src/app/packages/tesco-core/package.json /usr/src/app/packages/tesco-core/package.json
 COPY --from=build /usr/src/app/packages/tesco-core/build /usr/src/app/packages/tesco-core/build
+
+COPY --from=build /usr/src/app/packages/tesco-util/package.json /usr/src/app/packages/tesco-util/package.json
+COPY --from=build /usr/src/app/packages/tesco-util/build /usr/src/app/packages/tesco-util/build
 
 # end flat dependency
 
