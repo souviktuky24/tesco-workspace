@@ -406,12 +406,6 @@ module.exports = function (webpackEnv) {
                       runtime: hasJsxRuntime ? 'automatic' : 'classic',
                     },
                   ],
-                  [
-                    require.resolve('@babel/preset-react')
-                  ],
-                  [
-                    require.resolve('@babel/preset-env')
-                  ],
                 ],
                 
                 plugins: [
