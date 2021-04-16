@@ -421,7 +421,7 @@ module.exports = function (webpackEnv) {
                     },
                   ],
                   [
-                    require.resolve('@babel/plugin-syntax-jsx'),
+                    require.resolve('@babel/plugin-syntax-jsx')
                   ],
                   isEnvDevelopment &&
                     shouldUseReactRefresh &&
